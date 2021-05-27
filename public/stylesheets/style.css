@@ -1,0 +1,36 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient( 180deg, rgba(31, 168, 196, 1) 0%, rgba(231, 84, 128, 1) 100%) fixed;
+}
+
+.panel {
+  background-color: white;
+  width: 380px;
+  height: 450px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -225px;
+  margin-left: -190px;
+}
+
+.title {
+  color: #1fa8c4;
+}
+.icon {
+  background: -webkit-linear-gradient(#5f8dae, #ab6d94);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.btn-submit {
+  color: white;
+  border: white;
+  background: linear-gradient(180deg, #cf5e88 0%, #e75480 100%);
+}
+.btn-submit:hover {
+  color: white;
+  background: #913753;
+}
