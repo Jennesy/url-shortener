@@ -20,9 +20,10 @@ app.get('/', (req, res) => {
   return res.render('index')
 })
 app.post('/', async (req, res) => {
-  const routes = await generateURL(req.body.originalURL)
+  const originalURL = req.body.originalURL
+  const routes = await generateURL(originalURL)
   const shortenURL = `${req.protocol}://${req.get('host')}/${routes}`
-  res.render('result', { shortenURL })
+  res.render('result', { originalURL, shortenURL })
 })
 app.get('/:shortenURL', (req, res) => {
   const shortenURL = req.params.shortenURL
