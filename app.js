@@ -3,6 +3,7 @@ const exphbs = require('express-handlebars')
 const bodyParser = require('body-parser')
 const generateURL = require('./models/generateURL')
 require('./config/mongoose')
+const URL = require('./models/url')
 
 const app = express()
 const port = 3000
@@ -23,7 +24,14 @@ app.post('/', async (req, res) => {
   const shortenURL = `${req.protocol}://${req.get('host')}/${routes}`
   res.render('result', { shortenURL })
 })
-
+app.get('/:shortenURL', (req, res) => {
+  const shortenURL = req.params.shortenURL
+  return URL.findOne({ shortenURL }).lean()
+    .then(url => {
+      res.status(301).redirect(url.originalURL)
+    })
+    .catch(error => console.log(error))
+})
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`)
 })
