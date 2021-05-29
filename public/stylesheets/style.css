@@ -23,6 +23,9 @@ body {
 
 .title {
   color: #1fa8c4;
+  background: -webkit-linear-gradient(#1fa8c4, #5093b3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 .icon {
   background: -webkit-linear-gradient(#5f8dae, #ab6d94);
@@ -53,4 +56,13 @@ body {
   left: 50%;
   margin-top: 145px;
   margin-left: -36px;
+}
+@media screen and (max-width: 575px) {
+  .panel {
+    width: 340px;
+    margin-left: -170px;
+  }
+  .title {
+    font-size: 2.3rem;
+  }
 }
