@@ -69,7 +69,11 @@
 			</svg>
 		{{/if}}
 		<!-- SVG Reference -->
+		{{#if isHome}}
+			<script src='/preventDuplicateRequest.js'></script>
+		{{else}}
 			<script src='/copyToClipboard.js'></script>
+		{{/if}}
 	</body>
 
 </html>
