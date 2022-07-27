@@ -34,6 +34,7 @@ app.get('/:shortenURL', (req, res) => {
 	return URL.findOne({ shortenURL })
 		.lean()
 		.then((url) => {
+			console.log('url', url)
 			res.status(301).redirect(url.originalURL)
 		})
 		.catch((error) => {
