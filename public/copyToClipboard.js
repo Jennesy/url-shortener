@@ -1,11 +1,11 @@
 const copyButton = document.querySelector('#btn-copy')
-const shortenURL = document.querySelector('#shortenURL')
+const shortenUrlLabel = document.querySelector('#shortenURL-label')
 copyButton.addEventListener('click', (event) => {
-	const copyURL = shortenURL.innerText
+	const copyURL = document.querySelector('#shortenURL').getAttribute('value')
 	navigator.clipboard.writeText(copyURL).then(() => {
-		shortenURL.classList.add('success')
+		shortenUrlLabel.classList.add('success')
 		setTimeout(() => {
-			shortenURL.classList.remove('success')
+			shortenUrlLabel.classList.remove('success')
 		}, 500)
 	})
 })
