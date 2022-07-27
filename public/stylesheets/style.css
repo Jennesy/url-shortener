@@ -222,3 +222,6 @@
 #btn-back:hover::after {
 	width: 100%;
 }
+#btn-404 {
+	text-decoration: none;
+}

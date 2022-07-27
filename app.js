@@ -16,6 +16,9 @@ app.use(bodyParser.urlencoded({ extended: true }))
 //routes setting
 app.use(express.static('public'))
 
+app.get('/404', (req, res) => {
+	return res.render('404', { is404: true })
+})
 app.get('/', (req, res) => {
   return res.render('index')
 })
@@ -26,13 +29,17 @@ app.post('/', async (req, res) => {
   res.render('result', { originalURL, shortenURL })
 })
 app.get('/:shortenURL', (req, res) => {
-  const shortenURL = req.params.shortenURL
-  return URL.findOne({ shortenURL }).lean()
-    .then(url => {
-      res.status(301).redirect(url.originalURL)
-    })
-    .catch(error => console.log(error))
+	const shortenURL = req.params.shortenURL
+	return URL.findOne({ shortenURL })
+		.lean()
+		.then((url) => {
+			res.status(301).redirect(url.originalURL)
+		})
+		.catch((error) => {
+			console.log(error)
+			res.status(404).redirect('/404')
+		})
 })
 app.listen(port, () => {
-  console.log(`Server running on http://localhost:${port}`)
+	console.log(`Server running on http://localhost:${port}`)
 })

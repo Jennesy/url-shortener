@@ -18,6 +18,31 @@
 			{{{body}}}
 		</div>
 		<!-- SVG Reference -->
+		{{#if is404}}
+			<svg width='0' height='0'>
+				<defs>
+					<clipPath
+						id='svgPath'
+						style='transform:translate(calc(50vw - 100px), calc(50vh - 90px))'
+					>
+						<text
+							font-family="'Noto Sans TC', sans-serif"
+							font-size='100px'
+							font-weight='600'
+							font-style='italic'
+						> 404 </text>
+						<text
+							style='transform:translate(-50px,70px)'
+							font-family="'Noto Sans TC', sans-serif"
+							font-size='42px'
+							font-weight='900'
+							font-style='italic'
+							textLength='300px'
+						> Page Not Found </text>
+					</clipPath>
+				</defs>
+			</svg>
+		{{else}}
 			<svg width='0' height='0'>
 				<defs>
 					<clipPath
@@ -42,6 +67,7 @@
 					</clipPath>
 				</defs>
 			</svg>
+		{{/if}}
 		<!-- SVG Reference -->
 			<script src='/copyToClipboard.js'></script>
 	</body>
