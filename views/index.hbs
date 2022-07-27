@@ -1,10 +1,14 @@
-<div class="panel border rounded-lg shadow-lg d-flex flex-column align-items-center py-5">
-  <h1 class="title text-center font-weight-bold mb-4">URL Shortener</h1>
-  <i class="fas fa-link fa-7x my-4 icon"></i>
-  <form action="/" method="POST" class="mt-auto d-flex flex-column align-items-center">
-    <div class="form-group mb-4">
-      <input type="text" class="form-control" placeholder="輸入你的網址" name="originalURL" required>
-    </div>
-    <button type="submit" class="btn-sm btn-submit">送出</button>
-  </form>
+<div class='card-main'>
+	<form action='/' method='POST' id='form'>
+		<div class='form-group'>
+			<input
+				type='text'
+				placeholder='輸入你的網址'
+				name='originalURL'
+				id='originalURL'
+				required
+			/>
+		</div>
+		<button type='submit' class='btn-submit' id='btn-submit'>送出</button>
+	</form>
 </div>
