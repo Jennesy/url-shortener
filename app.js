@@ -10,11 +10,11 @@ const port = process.env.PORT || 3000
 
 app.engine('hbs', exphbs({ defaultLayout: 'main', extname: '.hbs' }))
 app.set('view engine', 'hbs')
-
 app.use(bodyParser.urlencoded({ extended: true }))
 
 //routes setting
 app.use(express.static('public'))
+app.use(express.Router({ caseSensitive: true }))
 
 app.get('/404', (req, res) => {
 	return res.render('404', { is404: true })
@@ -27,7 +27,7 @@ app.post('/', async (req, res) => {
 	const originalURL = req.body.originalURL
 	const routes = await generateURL(originalURL)
 	const shortenURL = `${req.protocol}://${req.get('host')}/${routes}`
-	res.render('result', { originalURL, shortenURL, isHome: false })
+	return res.render('result', { originalURL, shortenURL, isHome: false })
 })
 app.get('/:shortenURL', (req, res) => {
 	const shortenURL = req.params.shortenURL
